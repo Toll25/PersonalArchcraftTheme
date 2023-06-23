@@ -5,7 +5,7 @@ then
 else
   if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
   then 
-    echo "%{T4}"
+    echo "%{T2}"
   fi
   echo "%{F#2193ff}%{T2}"
 fi
