@@ -5,10 +5,10 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#222d32'
-foreground='#c4c7c5'
+background='#aa0c0c0c'
+foreground='#cccccc'
 color0='#263640'
-color1='#ec7875'
+color1='#00bcd4'
 color2='#61c766'
 color3='#fdd835'
 color4='#42a5f5'
@@ -24,7 +24,7 @@ color13='#c979d7'
 color14='#5cdff0'
 color15='#fdf6e3'
 
-accent='#00BCD4'
+accent='#e3008c'
 light_value='0.15'
 dark_value='0.30'
 
@@ -37,7 +37,7 @@ polybar_font='Iosevka Nerd Font:size=13;3'
 
 # Rofi
 rofi_font='Iosevka 10'
-rofi_icon='Papirus-Apps'
+rofi_icon='Win11-Dark'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
@@ -50,7 +50,7 @@ geany_font='JetBrains Mono 10'
 # Appearance
 gtk_font='Noto Sans 9'
 gtk_theme='Sweet-Dark'
-icon_theme='Luv-Folders-Dark'
+icon_theme='Win11-Dark'
 cursor_theme='Sweet'
 
 # Openbox
@@ -78,7 +78,7 @@ plank_hmode='Intellihide'
 plank_offset='0'
 plank_position='left'
 plank_theme='Transparent'
-plank_icon_size='60'
+plank_icon_size='48'
 plank_zoom_percent='120'
 
 
@@ -89,5 +89,5 @@ picom_shadow_r='14'
 picom_shadow_o='0.30'
 picom_shadow_x='-12'
 picom_shadow_y='-12'
-picom_blur_method='none'
-picom_blur_strength='0'
+picom_blur_method='dual_kawase'
+picom_blur_strength='7.5'

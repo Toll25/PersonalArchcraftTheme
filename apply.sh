@@ -74,6 +74,8 @@ apply_polybar() {
 		BACKGROUND6 = ${modbackground[6]}
 	EOF
 
+	
+
 	# launch polybar
 	bash ${PATH_OBTS}/themes/polybar.sh
 }
