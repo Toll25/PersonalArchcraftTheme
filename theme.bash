@@ -6,6 +6,7 @@
 
 # Colors
 background='#aa0c0c0c'
+backgroundnotrans='#0c0c0c'
 foreground='#cccccc'
 color0='#263640'
 color1='#00bcd4'
