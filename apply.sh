@@ -49,22 +49,22 @@ apply_polybar() {
 		ALTFOREGROUND = ${altforeground}
 		ACCENT = ${accent}
 		
-		BLACK = ${color0}
-		RED = ${color1}
-		GREEN = ${color2}
-		YELLOW = ${color3}
-		BLUE = ${color4}
-		MAGENTA = ${color5}
-		CYAN = ${color6}
-		WHITE = ${color7}
-		ALTBLACK = ${color8}
-		ALTRED = ${color9}
-		ALTGREEN = ${color10}
-		ALTYELLOW = ${color11}
-		ALTBLUE = ${color12}
-		ALTMAGENTA = ${color13}
-		ALTCYAN = ${color14}
-		ALTWHITE = ${color15}
+		BLACK = ${black}
+		RED = ${red}
+		GREEN = ${green}
+		YELLOW = ${yellow}
+		BLUE = ${blue}
+		MAGENTA = ${magenta}
+		CYAN = ${cyan}
+		WHITE = ${white}
+		ALTBLACK = ${altblack}
+		ALTRED = ${altred}
+		ALTGREEN = ${altgreen}
+		ALTYELLOW = ${altyellow}
+		ALTBLUE = ${altblue}
+		ALTMAGENTA = ${altmagenta}
+		ALTCYAN = ${altcyan}
+		ALTWHITE = ${altwhite}
 
 		BACKGROUND1 = ${modbackground[1]}
 		BACKGROUND2 = ${modbackground[2]}
@@ -101,8 +101,8 @@ apply_rofi() {
 		    background-alt: ${modbackground[2]};
 		    foreground:     ${foreground};
 		    selected:       ${accent};
-		    active:         ${color2};
-		    urgent:         ${color1};
+		    active:         ${green};
+		    urgent:         ${red};
 		}
 	EOF
 
@@ -137,25 +137,25 @@ apply_terminal() {
 
 		  # Normal colors
 		  normal:
-		    black:   '${color0}'
-		    red:     '${color1}'
-		    green:   '${color2}'
-		    yellow:  '${color3}'
-		    blue:    '${color4}'
-		    magenta: '${color5}'
-		    cyan:    '${color6}'
-		    white:   '${color7}'
+		    black:   '${black}'
+		    red:     '${red}'
+		    green:   '${green}'
+		    yellow:  '${yellow}'
+		    blue:    '${blue}'
+		    magenta: '${magenta}'
+		    cyan:    '${cyan}'
+		    white:   '${white}'
 
 		  # Bright colors
 		  bright:
-		    black:   '${color8}'
-		    red:     '${color9}'
-		    green:   '${color10}'
-		    yellow:  '${color11}'
-		    blue:    '${color12}'
-		    magenta: '${color13}'
-		    cyan:    '${color14}'
-		    white:   '${color15}'
+		    black:   '${altblack}'
+		    red:     '${altred}'
+		    green:   '${altgreen}'
+		    yellow:  '${altyellow}'
+		    blue:    '${altblue}'
+		    magenta: '${altmagenta}'
+		    cyan:    '${altcyan}'
+		    white:   '${altwhite}'
 	_EOF_
 
 	# xfce terminal : fonts & colors
@@ -164,7 +164,7 @@ apply_terminal() {
 		-e "s/ColorBackground=.*/ColorBackground=${background}/g" \
 		-e "s/ColorForeground=.*/ColorForeground=${foreground}/g" \
 		-e "s/ColorCursor=.*/ColorCursor=${foreground}/g" \
-		-e "s/ColorPalette=.*/ColorPalette=${color0};${color1};${color2};${color3};${color4};${color5};${color6};${color7};${color8};${color9};${color10};${color11};${color12};${color13};${color14};${color15}/g"
+		-e "s/ColorPalette=.*/ColorPalette=${black};${red};${green};${yellow};${blue};${magenta};${cyan};${white};${altblack};${altred};${altgreen};${altyellow};${altblue};${altmagenta};${altcyan};${altwhite}/g"
 }
 
 # Geany -------------------------------------
@@ -274,8 +274,8 @@ apply_dunst() {
 		[urgency_critical]
 		timeout = 0
 		background = "${background}"
-		foreground = "${color1}"
-		frame_color = "${color1}"
+		foreground = "${red}"
+		frame_color = "${red}"
 	_EOF_
 
 	# restart dunst
