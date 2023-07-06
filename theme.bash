@@ -7,6 +7,7 @@
 # Colors
 background='#aa0c0c0c'
 backgroundnotrans='#0c0c0c'
+altbackgroundnotrans='#2c2c2c'
 foreground='#cccccc'
 black='#263640'
 red='#00bcd4'
@@ -34,10 +35,10 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$/usr/share/backgrounds"
 
 # Polybar
-polybar_font='Iosevka Nerd Font:size=13;3'
+polybar_font='JetBrainsMono Nerd Font:size=13;3'
 
 # Rofi
-rofi_font='Iosevka 10'
+rofi_font='JetBrainsMono 10'
 rofi_icon='Win11-Dark'
 
 # Terminal
@@ -49,7 +50,7 @@ geany_colors='adapta.conf'
 geany_font='JetBrains Mono 10'
 
 # Appearance
-gtk_font='Noto Sans 9'
+gtk_font='JetBrains Mono 9'
 gtk_theme='Sweet-Dark'
 icon_theme='Win11-Dark'
 cursor_theme='Sweet'
@@ -58,7 +59,7 @@ cursor_theme='Sweet'
 ob_theme='Sweet-Dark'
 ob_layout='NLIMC'
 ob_font='JetBrains Mono'
-ob_font_size='16'
+ob_font_size='10'
 ob_menu='menu-icons.xml'
 ob_margin_t='0'
 ob_margin_b='0'
