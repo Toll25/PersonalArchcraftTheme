@@ -102,7 +102,7 @@ apply_rofi() {
 		    foreground:     ${foreground};
 		    selected:       ${accent};
 		    active:         ${green};
-		    urgent:         ${red};
+		    urgent:         ${cyan};
 		}
 	EOF
 
