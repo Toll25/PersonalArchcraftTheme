@@ -10,6 +10,7 @@ THEME="${TDIR##*/}"
 
 source "$HOME"/.config/openbox-themes/themes/"$THEME"/theme.bash
 altbackground="`pastel color $background | pastel lighten $light_value | pastel format hex`"
+altbackgroundnotrans="`pastel color $backgroundnotrans | pastel lighten $light_value | pastel format hex`"
 altforeground="`pastel color $foreground | pastel darken $dark_value | pastel format hex`"
 modbackground=(`pastel gradient -n 7 $background $altbackground | pastel format hex`)
 
@@ -48,6 +49,7 @@ apply_polybar() {
 		ALTBACKGROUND = ${altbackground}
 		ALTFOREGROUND = ${altforeground}
 		ACCENT = ${accent}
+		TRANSPARENT = ${transparent}
 		
 		BLACK = ${black}
 		RED = ${red}
@@ -261,19 +263,19 @@ apply_dunst() {
 	cat >> ${PATH_DUNST}/dunstrc <<- _EOF_
 		[urgency_low]
 		timeout = 2
-		background = "${background}"
+		background = "${dunstbackground}"
 		foreground = "${foreground}"
-		frame_color = "${altbackground}"
+		frame_color = "${altbackgroundnotrans}"
 
 		[urgency_normal]
 		timeout = 5
-		background = "${background}"
+		background = "${dunstbackground}"
 		foreground = "${foreground}"
-		frame_color = "${altbackground}"
+		frame_color = "${altbackgroundnotrans}"
 
 		[urgency_critical]
 		timeout = 0
-		background = "${background}"
+		background = "${dunstbackground}"
 		foreground = "${red}"
 		frame_color = "${red}"
 	_EOF_

@@ -1,14 +1,19 @@
 # ------------------------------------------------------------------------------
-# Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+# Copyright (C) Indefinate Gwen
 #
-# Adaptive Theme
+# MyTheme
 # ------------------------------------------------------------------------------
 
 # Colors
 background='#aa0c0c0c'
 backgroundnotrans='#0c0c0c'
-altbackgroundnotrans='#2c2c2c'
+dunstbackground='#cc000000'
 foreground='#cccccc'
+transparent='#00000000'
+
+monocolor=false;
+
+# Colorful Mode #
 black='#263640'
 altblack='#4a697d'
 red='#f24732'
@@ -25,6 +30,27 @@ cyan='#4dd0e1'
 altcyan='#5cdff0'
 white='#bfbaac'
 altwhite='#fdf6e3'
+
+
+# Monocolor Mode #
+if [ "$monocolor" = true ]; then
+black='#D62598'
+altblack='#D62598'
+red='#D62598'
+altred='#D62598'
+green='#D62598'
+altgreen='#D62598'
+yellow='#D62598'
+altyellow='#D62598'
+blue='#D62598'
+altblue='#D62598'
+magenta='#D62598'
+altmagenta='#D62598'
+cyan='#D62598'
+altcyan='#D62598'
+white='#D62598'
+altwhite='#D62598'
+fi
 
 accent='#D62598'
 light_value='0.15'
@@ -71,7 +97,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='Iosevka Custom 9'
+dunst_font='JetBrains Mono 9'
 dunst_border='1'
 dunst_separator='2'
 
