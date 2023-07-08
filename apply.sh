@@ -49,6 +49,7 @@ apply_polybar() {
 		ALTBACKGROUND = ${altbackground}
 		ALTFOREGROUND = ${altforeground}
 		ACCENT = ${accent}
+		SECUNDERLINE = ${accent}
 		TRANSPARENT = ${transparent}
 		
 		BLACK = ${black}
