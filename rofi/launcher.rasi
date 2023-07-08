@@ -109,19 +109,19 @@ prompt {
 }
 textbox-prompt-colon {
     enabled:                     true;
-    padding:                     5px 0px;
+    padding:                     10px 16px;
     expand:                      false;
     str:                         "";
-    background-color:            inherit;
-    text-color:                  @urgent;
+    background-color:            @urgent;
+    text-color:                  @background;
 }
 entry {
+    placeholder:                 "Search...";
     enabled:                     true;
-    padding:                     5px 0px;
+    padding:                     10px 0px 0px 10px;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {

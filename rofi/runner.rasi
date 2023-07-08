@@ -91,7 +91,7 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -104,24 +104,26 @@ inputbar {
 
 prompt {
     enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
+    padding:                     15px;
+    border-radius:               0px;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
 textbox-prompt-colon {
     enabled:                     true;
-    padding:                     5px 0px;
+    padding:                     10px 16px;
     expand:                      false;
     str:                         "";
-    background-color:            inherit;
-    text-color:                  @urgent;
+    background-color:            @urgent;
+    text-color:                  @background;
 }
 entry {
+    placeholder:                 "Run...";
     enabled:                     true;
-    padding:                     5px 0px;
+    padding:                     10px 0px 0px 10px;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Run...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
