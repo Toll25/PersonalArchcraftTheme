@@ -52,7 +52,7 @@ white='#D62598'
 altwhite='#D62598'
 fi
 
-accent='#D62598'
+accent='#cccccc'
 light_value='0.15'
 dark_value='0.30'
 
