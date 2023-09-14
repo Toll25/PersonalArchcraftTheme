@@ -142,7 +142,7 @@ apply_terminal() {
 		colors:
 		  # Default colors
 		  primary:
-		    background: '${background}'
+		    background: '${backgroundnotrans}'
 		    foreground: '${foreground}'
 
 		  # Normal colors

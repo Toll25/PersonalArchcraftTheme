@@ -72,7 +72,7 @@ terminal_font_name='JetBrainsMono Nerd Font'
 terminal_font_size='10'
 
 # Geany
-geany_colors='adapta.conf'
+geany_colors='dracula.conf'
 geany_font='JetBrains Mono 10'
 
 # Appearance
