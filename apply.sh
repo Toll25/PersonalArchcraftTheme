@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
 ##
 ## Script To Apply Themes
 
@@ -8,11 +8,9 @@
 TDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 THEME="${TDIR##*/}"
 
-source "$HOME"/.config/openbox-themes/themes/"$THEME"/theme.bash
+source "$HOME"/.config/openbox/themes/"$THEME"/theme.bash
 altbackground="`pastel color $background | pastel lighten $light_value | pastel format hex`"
-altbackgroundnotrans="`pastel color $backgroundnotrans | pastel lighten $light_value | pastel format hex`"
 altforeground="`pastel color $foreground | pastel darken $dark_value | pastel format hex`"
-modbackground=(`pastel gradient -n 7 $background $altbackground | pastel format hex`)
 
 ## Directories ------------------------------
 PATH_CONF="$HOME/.config"
@@ -20,9 +18,8 @@ PATH_TERM="$PATH_CONF/alacritty"
 PATH_DUNST="$PATH_CONF/dunst"
 PATH_GEANY="$PATH_CONF/geany"
 PATH_OBOX="$PATH_CONF/openbox"
-PATH_OBTS="$PATH_CONF/openbox-themes"
-PATH_PBAR="$PATH_OBTS/themes/$THEME/polybar"
-PATH_ROFI="$PATH_OBTS/themes/$THEME/rofi"
+PATH_PBAR="$PATH_OBOX/themes/$THEME/polybar"
+PATH_ROFI="$PATH_OBOX/themes/$THEME/rofi"
 PATH_XFCE="$PATH_CONF/xfce4/terminal"
 
 ## Wallpaper ---------------------------------
@@ -35,7 +32,7 @@ apply_wallpaper() {
 ## Polybar -----------------------------------
 apply_polybar() {
 	# modify polybar launch script
-	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" ${PATH_OBTS}/themes/polybar.sh
+	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" ${PATH_OBOX}/themes/polybar.sh
 
 	# apply default theme fonts
 	sed -i -e "s/font-0 = .*/font-0 = \"$polybar_font\"/g" ${PATH_PBAR}/config.ini
@@ -49,57 +46,43 @@ apply_polybar() {
 		ALTBACKGROUND = ${altbackground}
 		ALTFOREGROUND = ${altforeground}
 		ACCENT = ${accent}
-		SECUNDERLINE = ${accent}
-		TRANSPARENT = ${transparent}
 		
-		BLACK = ${black}
-		RED = ${red}
-		GREEN = ${green}
-		YELLOW = ${yellow}
-		BLUE = ${blue}
-		MAGENTA = ${magenta}
-		CYAN = ${cyan}
-		WHITE = ${white}
-		ALTBLACK = ${altblack}
-		ALTRED = ${altred}
-		ALTGREEN = ${altgreen}
-		ALTYELLOW = ${altyellow}
-		ALTBLUE = ${altblue}
-		ALTMAGENTA = ${altmagenta}
-		ALTCYAN = ${altcyan}
-		ALTWHITE = ${altwhite}
-
-		BACKGROUND1 = ${modbackground[1]}
-		BACKGROUND2 = ${modbackground[2]}
-		BACKGROUND3 = ${modbackground[3]}
-		BACKGROUND4 = ${modbackground[4]}
-		BACKGROUND5 = ${modbackground[5]}
-		BACKGROUND6 = ${modbackground[6]}
+		BLACK = ${color0}
+		RED = ${color1}
+		GREEN = ${color2}
+		YELLOW = ${color3}
+		BLUE = ${color4}
+		MAGENTA = ${color5}
+		CYAN = ${color6}
+		WHITE = ${color7}
+		ALTBLACK = ${color8}
+		ALTRED = ${color9}
+		ALTGREEN = ${color10}
+		ALTYELLOW = ${color11}
+		ALTBLUE = ${color12}
+		ALTMAGENTA = ${color13}
+		ALTCYAN = ${color14}
+		ALTWHITE = ${color15}
 	EOF
-
-		# modify colors for polywins
-	sed -i ${PATH_PBAR}/scripts/polywins.sh \
-		-e "s/active_text_color=.*/active_text_color='$accent'/g" \
-		-e "s/inactive_text_color=.*/inactive_text_color='$foreground'/g"
 }
 
 ## Tint2 -----------------------------------
 apply_tint2() {
 	# modify tint2 launch script
-	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" ${PATH_OBTS}/themes/tint2.sh
+	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" ${PATH_OBOX}/themes/tint2.sh
 }
 
 # Rofi --------------------------------------
 apply_rofi() {
 	# modify rofi scripts
 	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" \
-		${PATH_OBTS}/scripts/askpass \
-		${PATH_OBTS}/scripts/bluetooth \
-		${PATH_OBTS}/scripts/launcher \
-		${PATH_OBTS}/scripts/music \
-		${PATH_OBTS}/scripts/powermenu \
-		${PATH_OBTS}/scripts/runner \
-		${PATH_OBTS}/scripts/screenshot
+		${PATH_OBOX}/scripts/rofi-askpass \
+		${PATH_OBOX}/scripts/rofi-bluetooth \
+		${PATH_OBOX}/scripts/rofi-launcher \
+		${PATH_OBOX}/scripts/rofi-music \
+		${PATH_OBOX}/scripts/rofi-powermenu \
+		${PATH_OBOX}/scripts/rofi-runner \
+		${PATH_OBOX}/scripts/rofi-screenshot
 	
 	# apply default theme fonts
 	sed -i -e "s/font:.*/font: \"$rofi_font\";/g" ${PATH_ROFI}/shared/fonts.rasi
@@ -107,12 +90,12 @@ apply_rofi() {
 	# rewrite colors file
 	cat > ${PATH_ROFI}/shared/colors.rasi <<- EOF
 		* {
-		    background:     ${backgroundnotrans};
-		    background-alt: ${altbackgroundnotrans};
+		    background:     ${background};
+		    background-alt: ${altbackground};
 		    foreground:     ${foreground};
 		    selected:       ${accent};
-		    active:         ${green};
-		    urgent:         ${cyan};
+		    active:         ${color4};
+		    urgent:         ${color1};
 		}
 	EOF
 
@@ -142,30 +125,30 @@ apply_terminal() {
 		colors:
 		  # Default colors
 		  primary:
-		    background: '${backgroundnotrans}'
+		    background: '${background}'
 		    foreground: '${foreground}'
 
 		  # Normal colors
 		  normal:
-		    black:   '${black}'
-		    red:     '${red}'
-		    green:   '${green}'
-		    yellow:  '${yellow}'
-		    blue:    '${blue}'
-		    magenta: '${magenta}'
-		    cyan:    '${cyan}'
-		    white:   '${white}'
+		    black:   '${color0}'
+		    red:     '${color1}'
+		    green:   '${color2}'
+		    yellow:  '${color3}'
+		    blue:    '${color4}'
+		    magenta: '${color5}'
+		    cyan:    '${color6}'
+		    white:   '${color7}'
 
 		  # Bright colors
 		  bright:
-		    black:   '${altblack}'
-		    red:     '${altred}'
-		    green:   '${altgreen}'
-		    yellow:  '${altyellow}'
-		    blue:    '${altblue}'
-		    magenta: '${altmagenta}'
-		    cyan:    '${altcyan}'
-		    white:   '${altwhite}'
+		    black:   '${color8}'
+		    red:     '${color9}'
+		    green:   '${color10}'
+		    yellow:  '${color11}'
+		    blue:    '${color12}'
+		    magenta: '${color13}'
+		    cyan:    '${color14}'
+		    white:   '${color15}'
 	_EOF_
 
 	# xfce terminal : fonts & colors
@@ -174,7 +157,7 @@ apply_terminal() {
 		-e "s/ColorBackground=.*/ColorBackground=${background}/g" \
 		-e "s/ColorForeground=.*/ColorForeground=${foreground}/g" \
 		-e "s/ColorCursor=.*/ColorCursor=${foreground}/g" \
-		-e "s/ColorPalette=.*/ColorPalette=${black};${red};${green};${yellow};${blue};${magenta};${cyan};${white};${altblack};${altred};${altgreen};${altyellow};${altblue};${altmagenta};${altcyan};${altwhite}/g"
+		-e "s/ColorPalette=.*/ColorPalette=${color0};${color1};${color2};${color3};${color4};${color5};${color6};${color7};${color8};${color9};${color10};${color11};${color12};${color13};${color14};${color15}/g"
 }
 
 # Geany -------------------------------------
@@ -271,21 +254,21 @@ apply_dunst() {
 	cat >> ${PATH_DUNST}/dunstrc <<- _EOF_
 		[urgency_low]
 		timeout = 2
-		background = "${dunstbackground}"
+		background = "${background}"
 		foreground = "${foreground}"
-		frame_color = "${altbackgroundnotrans}"
+		frame_color = "${altbackground}"
 
 		[urgency_normal]
 		timeout = 5
-		background = "${dunstbackground}"
+		background = "${background}"
 		foreground = "${foreground}"
-		frame_color = "${altbackgroundnotrans}"
+		frame_color = "${altbackground}"
 
 		[urgency_critical]
 		timeout = 0
-		background = "${dunstbackground}"
-		foreground = "${red}"
-		frame_color = "${red}"
+		background = "${background}"
+		foreground = "${color1}"
+		frame_color = "${color1}"
 	_EOF_
 
 	# restart dunst
@@ -300,11 +283,11 @@ apply_plank() {
 		alignment='start'
 		auto-pinning=true
 		current-workspace-only=false
-		dock-items=['firefox.dockitem', 'thunar.dockitem', 'xfce4-terminal.dockitem']
+		dock-items=['xfce-settings-manager.dockitem', 'Alacritty.dockitem', 'thunar.dockitem', 'firefox.dockitem', 'geany.dockitem']
 		hide-delay=0
 		hide-mode='$plank_hmode'
 		icon-size=$plank_icon_size
-		items-alignment='center'
+		items-alignment='Start'
 		lock-items=false
 		monitor=''
 		offset=$plank_offset
@@ -341,7 +324,7 @@ apply_compositor() {
 
 # Create Theme File -------------------------
 create_file() {
-	theme_file="$PATH_OBTS/themes/.current"
+	theme_file="$PATH_OBOX/themes/.current"
 	if [[ ! -f "$theme_file" ]]; then
 		touch ${theme_file}
 	fi
@@ -370,7 +353,7 @@ apply_plank
 apply_compositor
 
 # launch polybar / tint2
-bash ${PATH_OBTS}/themes/launch-bar.sh
+bash ${PATH_OBOX}/themes/launch-bar.sh
 
 # fix cursor theme (run it in the end)
 xsetroot -cursor_name left_ptr

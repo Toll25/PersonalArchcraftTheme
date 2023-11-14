@@ -3,8 +3,10 @@
 ## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
 
 # Colors
-POWER_ON=`cat $HOME/.config/openbox-themes/themes/myTheme/polybar/colors.ini | grep 'ACCENT' | head -n1 | cut -d '=' -f2 | tr -d ' '`
-POWER_OFF=`cat $HOME/.config/openbox-themes/themes/myTheme/polybar/colors.ini | grep 'ALTFOREGROUND' | head -n1 | cut -d '=' -f2 | tr -d ' '`
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+CDIR=`cd "$DIR" && cd .. && pwd`
+POWER_ON=`cat $CDIR/colors.ini | grep 'GREEN' | head -n1 | cut -d '=' -f2 | tr -d ' '`
+POWER_OFF=`cat $CDIR/colors.ini | grep 'ALTFOREGROUND' | head -n1 | cut -d '=' -f2 | tr -d ' '`
 
 # Checks if bluetooth controller is powered on
 power_on() {
@@ -30,7 +32,7 @@ device_connected() {
 print_status() {
     if power_on; then
 		if [[ -z `bluetoothctl info "$device" | grep "Alias" | cut -d ' ' -f 2-` ]]; then
-			echo "%{F$POWER_ON}%{T2}%{T-}%{F-}"
+			echo "%{F$POWER_ON}󰂯 %{F-}Power: on"
 		fi
 		
         paired_devices_cmd="devices Paired"
@@ -47,16 +49,16 @@ print_status() {
                 device_alias=$(bluetoothctl info "$device" | grep "Alias" | cut -d ' ' -f 2-)
 
                 if [ $counter -gt 0 ]; then
-                    echo "%{F$POWER_ON}%{T2}%{T-}%{F-}"
+                    echo "%{F$POWER_ON}󰂱 %{F-}$device_alias"
                 else
-                    echo "%{F$POWER_ON}%{T2}%{T-}%{F-}"
+                    echo "%{F$POWER_ON}󰂱 %{F-}$device_alias"
                 fi
 
                 ((counter++))
             fi
         done
     else
-        echo "%{F$POWER_OFF}%{T2}%{T-}%{F-}"
+        echo "%{F$POWER_OFF}󰂲 Power: off%{F-}"
     fi
 }
 
