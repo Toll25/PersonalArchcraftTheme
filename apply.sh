@@ -280,14 +280,14 @@ apply_plank() {
 	# create temporary config file
 	cat > "$HOME"/.cache/plank.conf <<- _EOF_
 		[dock1]
-		alignment='start'
+		alignment='Center'
 		auto-pinning=true
 		current-workspace-only=false
 		dock-items=['xfce-settings-manager.dockitem', 'Alacritty.dockitem', 'thunar.dockitem', 'firefox.dockitem', 'geany.dockitem']
 		hide-delay=0
 		hide-mode='$plank_hmode'
 		icon-size=$plank_icon_size
-		items-alignment='Start'
+		items-alignment='Center'
 		lock-items=false
 		monitor=''
 		offset=$plank_offset

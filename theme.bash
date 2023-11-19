@@ -25,7 +25,7 @@ color14='#5FC0CC'
 color15='#B5BCC9'
 
 accent='#9940be'
-light_value='0.15'
+light_value='0.1'
 dark_value='0.30'
 
 # Wallpaper
@@ -36,28 +36,28 @@ wallpaper="$wdir/wallpaper"
 polybar_font='JetBrains Mono:size=12;3'
 
 # Rofi
-rofi_font='Jetbrains Mono 10'
+rofi_font='Jetbrains Mono 13'
 rofi_icon='Win11-Dark'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='14'
+terminal_font_size='13'
 
 # Geany
 geany_colors='delt-dark.conf'
-geany_font='JetBrains Mono 14'
+geany_font='JetBrains Mono 13'
 
 # Appearance
-gtk_font='Jetbrains Mono 9'
-gtk_theme='Sweet-Dark'
+gtk_font='Jetbrains Mono 11'
+gtk_theme='Windows-10-Dark'
 icon_theme='Win11-Dark'
 cursor_theme='Sweet'
 
 # Openbox
-ob_theme='Sweet-Dark'
+ob_theme='Windows-10-Dark'
 ob_layout='NLIMC'
 ob_font='JetBrains Mono'
-ob_font_size='9'
+ob_font_size='11'
 ob_menu='menu-icons.xml'
 ob_margin_t='0'
 ob_margin_b='0'
@@ -69,14 +69,14 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x48'
 dunst_origin='top-right'
-dunst_font='JetBrains Mono 10'
+dunst_font='JetBrains Mono 11'
 dunst_border='4'
 dunst_separator='2'
 
 # Plank
 plank_hmode='intelligent'
 plank_offset='0'
-plank_position='left'
+plank_position='bottom'
 plank_theme='Transparent'
 plank_icon_size='48'
 plank_zoom_percent='120'
