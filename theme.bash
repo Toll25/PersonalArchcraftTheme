@@ -36,7 +36,7 @@ wallpaper="$wdir/wallpaper"
 polybar_font='JetBrains Mono:size=12;3'
 
 # Rofi
-rofi_font='Jetbrains Mono 13'
+rofi_font='Jetbrains Mono 11'
 rofi_icon='Win11-Dark'
 
 # Terminal
@@ -57,7 +57,7 @@ cursor_theme='Sweet'
 ob_theme='Windows-10-Dark'
 ob_layout='NLIMC'
 ob_font='JetBrains Mono'
-ob_font_size='11'
+ob_font_size='10'
 ob_menu='menu-icons.xml'
 ob_margin_t='0'
 ob_margin_b='0'
@@ -77,7 +77,7 @@ dunst_separator='2'
 plank_hmode='intelligent'
 plank_offset='0'
 plank_position='bottom'
-plank_theme='Transparent'
+plank_theme='Dark'
 plank_icon_size='48'
 plank_zoom_percent='120'
 
