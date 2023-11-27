@@ -5,8 +5,8 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#000000'
-foreground='#CCCCCC'
+background='#0a0a0a'
+foreground='#FFFFFF'
 color0='#32363D'
 color1='#E06B74'
 color2='#98C379'
@@ -44,17 +44,17 @@ terminal_font_name='JetBrainsMono Nerd Font'
 terminal_font_size='13'
 
 # Geany
-geany_colors='delt-dark.conf'
+geany_colors='catppuccin-mocha.conf'
 geany_font='JetBrains Mono 13'
 
 # Appearance
-gtk_font='Jetbrains Mono 11'
-gtk_theme='Windows-10-Dark'
+gtk_font='Jetbrains Mono 10'
+gtk_theme='Catppuccin-Mocha'
 icon_theme='Win11-Dark'
 cursor_theme='Sweet'
 
 # Openbox
-ob_theme='Windows-10-Dark'
+ob_theme='Catppuccin-Mocha'
 ob_layout='NLIMC'
 ob_font='JetBrains Mono'
 ob_font_size='10'
@@ -76,8 +76,8 @@ dunst_separator='2'
 # Plank
 plank_hmode='intelligent'
 plank_offset='0'
-plank_position='bottom'
-plank_theme='Dark'
+plank_position='left'
+plank_theme='Transparent'
 plank_icon_size='48'
 plank_zoom_percent='120'
 
